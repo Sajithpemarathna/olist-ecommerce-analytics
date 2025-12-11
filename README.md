@@ -77,6 +77,8 @@ Two public dashboards were created using the analytics tables.
 
 ## Dashboard 1: Executive Sales & Customer Overview
 
+![Executive Dashboard](tableau/dashboard_1_executive_overview.png)
+
 Link:  
 https://public.tableau.com/shared/9Y5269RD9?:display_count=n&:origin=viz_share_link
 
@@ -100,6 +102,8 @@ Main Visuals:
 ---
 
 ## Dashboard 2: Product, Seller & Delivery Performance
+
+![Product Seller Dashboard](tableau/dashboard_2_product_seller_delivery.png)
 
 Link:  
 https://public.tableau.com/views/ProductSellerDeliveryPerformance/ProductSellerDeliveryPerformance
