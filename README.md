@@ -14,6 +14,7 @@ The objective is to build a complete analytics workflow: ingesting raw CSV files
    - [Raw Data Ingestion (Python → PostgreSQL)](#raw-data-ingestion-python--postgresql)
    - [STAGING Layer (SQL)](#staging-layer-sql)
    - [Analytics Layer – DIM & FACT Tables](#analytics-layer--dim--fact-tables)
+   - [BI Views (for dashboards)](#bi-views-for-dashboards)
    - [Tableau Dashboards](#tableau-dashboards)
 5. [Dashboard 1: Executive Sales & Customer Overview](#dashboard-1-executive-sales--customer-overview)
 6. [Dashboard 2: Product, Seller & Delivery Performance](#dashboard-2-product-seller--delivery-performance)
@@ -91,9 +92,15 @@ Scripts in `sql/staging/` perform:
 ### 3. Analytics Layer – DIM & FACT Tables
 Scripts in `sql/analytics/` create:
 - `dim_customers`, `dim_products`, `dim_sellers`, `dim_date`  
-- `fct_orders`, `fct_order_items`  
+- `fct_orders`, `fct_order_items`
 
-### 4. Tableau Dashboards
+### 4. BI Views (for dashboards)
+
+- `analytics.vw_exec_sales_overview` – source for **Dashboard 1: Executive Sales & Customer Overview**
+- `analytics.vw_seller_delivery_performance` – source for **Dashboard 2: Product, Seller & Delivery Performance**
+
+
+### 5. Tableau Dashboards
 Two public dashboards were created using the analytics tables.
 
 ---
