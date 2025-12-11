@@ -5,6 +5,29 @@ The objective is to build a complete analytics workflow: ingesting raw CSV files
 
 ---
 
+## Table of Contents
+
+1. [Project Goals](#project-goals)
+2. [Tech Stack](#tech-stack)
+3. [Folder Structure](#folder-structure)
+4. [End-to-End Data Pipeline](#end-to-end-data-pipeline)
+   - [Raw Data Ingestion (Python → PostgreSQL)](#raw-data-ingestion-python--postgresql)
+   - [STAGING Layer (SQL)](#staging-layer-sql)
+   - [Analytics Layer – DIM & FACT Tables](#analytics-layer--dim--fact-tables)
+   - [Tableau Dashboards](#tableau-dashboards)
+5. [Dashboard 1: Executive Sales & Customer Overview](#dashboard-1-executive-sales--customer-overview)
+6. [Dashboard 2: Product, Seller & Delivery Performance](#dashboard-2-product-seller--delivery-performance)
+7. [Business Insights (Examples)](#business-insights-examples)
+8. [Key Results & Insights](#key-results--insights)
+9. [How to Run the Project Locally](#how-to-run-the-project-locally)
+10. [What This Project Demonstrates](#what-this-project-demonstrates)
+11. [Roadmap (Future Enhancements)](#roadmap-future-enhancements)
+
+
+
+
+---
+
 ## Project Goals
 
 - Centralise all raw Olist CSV files in PostgreSQL  
@@ -143,6 +166,44 @@ Global Filters:
 
 ---
 
+## Key Results & Insights
+
+### Dashboard 1 – Executive Sales & Customer Overview
+
+- **Total revenue:** \$13.6M generated from **99,441 orders**.
+- **Customer base:** **96,096 unique customers**.
+- **Average order value (AOV):** **\$136.70** per order.
+- **Average revenue per customer:** **\$141.40**.
+- **Repeat customer rate:** only **3.12%** → Olist behaves more like a marketplace with many one-time buyers than a loyalty-driven store.
+- **Top product categories:** Revenue is dominated by **Health & Beauty, Watches_Gifts, Bed_Bath_Table, Sports_Leisure, Computers_Accessories** (Top Product Categories by Revenue).
+- **Geographic concentration:**
+  - **São Paulo (SP)** ≈ **41.7k** customers  
+  - **Rio de Janeiro (RJ)** ≈ **12.9k** customers  
+  - **Minas Gerais (MG)** ≈ **11.6k** customers  
+  These three states account for the majority of the total customer base (Customer Concentration by State).
+- **Order status performance:** The vast majority of orders are **delivered successfully**; cancelled, returned or unavailable orders are only a very small fraction (Orders by Order Status).
+- **Growth trend:** Monthly Revenue & Orders Trend shows steady growth from mid-2016 to early 2018, with a peak in early 2018 and a drop at the end corresponding to the end of the dataset.
+
+---
+
+### Dashboard 2 – Product, Seller & Delivery Performance
+
+- **Total sellers:** **3,095** active sellers.
+- **Total products sold:** **112,650** products.
+- **Average revenue per seller:** **\$4,391**.
+- **Average delivery time:** **12.5 days**.
+- **Late delivery rate:** **6.57%** of orders are delivered late.
+- **Average freight (shipping) cost:** **\$19.99** per order.
+- **Delivery time distribution:** Most orders are delivered between **7–15 days**, with a long right tail of late deliveries extending beyond **40–60 days** (Delivery Time Distribution).
+- **Shipping cost by state:** Freight spend is highest in **high-volume states** (especially **SP**) and tends to increase for more distant regions (Shipping Cost by State).
+- **Price vs freight vs delay:** Higher-priced orders generally have **higher freight costs**; late deliveries are more likely when **freight cost and distance increase** (Price vs Freight vs Delivery Delay).
+- **Revenue concentration by product and seller:**
+  - The **Top 10 Products by Revenue** contribute a large share of total product revenue, with the best-selling product earning around **\$63.9k**.
+  - The **Top 10 Sellers by Revenue** significantly outperform the long tail of sellers; the leading seller generates about **\$229k** in revenue, showing a strong concentration of sales among a few key sellers.
+
+
+---
+
 ## How to Run the Project Locally
 
 1. Create a PostgreSQL database.  
@@ -160,5 +221,26 @@ Global Filters:
 - Proper modelling using RAW → STAGING → DIM/FACT layers  
 - Python + PostgreSQL data pipeline skills  
 - BI storytelling and dashboard design using Tableau  
-- Professional GitHub workflow with branches and project board  
+- Professional GitHub workflow with branches and project board
+
+---
+
+## Roadmap (Future Enhancements)
+
+Here are several improvements that can be added to extend the project further:
+
+- **Automate the entire pipeline** using Airflow or dbt for scheduled refreshes.
+- **Deploy dashboards** using Tableau Online, Power BI, or a web-based BI solution.
+- **Add anomaly detection** for identifying abnormal spikes in delivery time, price, or freight cost.
+- **Improve customer analytics** by building RFM segmentation and lifetime value (LTV) models.
+- **Add machine learning models** to predict:
+  - Delivery delays  
+  - Product return probability  
+  - Customer churn likelihood  
+- **Extend the data model** with additional dimensions (geography details, product hierarchy, seller attributes).
+- **Containerize the project** using Docker for easier reproducibility.
+- **Implement CI/CD** for SQL checks, style checks, and automated testing.
+- **Build API endpoints** to expose cleaned or aggregated data for other applications.
+
+---
 
